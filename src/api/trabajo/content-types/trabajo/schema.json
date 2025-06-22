@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "trabajos",
+  "info": {
+    "singularName": "trabajo",
+    "pluralName": "trabajos",
+    "displayName": "Trabajo"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "volantaHome": { "type": "string" },
+    "tituloHome": { "type": "string" },
+    "titulo": { "type": "string" },
+    "portada": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images", "files", "videos"]
+    },
+    "descripcion": { "type": "text" },
+    "imagenes": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": ["images", "files", "videos", "audios"]
+    },
+    "orden": { "type": "integer" },
+    "categorias": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::categoria.categoria",
+      "mappedBy": "trabajos"
+    }
+  }
+}
