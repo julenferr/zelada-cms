@@ -1,0 +1,46 @@
+############################
+# Operating Systems
+############################
+# macOS
+.DS_Store
+.Spotlight-V100
+# Windows
+Thumbs.db
+Desktop.ini
+
+############################
+# Node.js
+############################
+node_modules/
+
+############################
+# Strapi build & cache
+############################
+.strapi/
+dist/
+.cache/
+
+############################
+# Environment
+############################
+.env
+
+############################
+# Logs
+############################
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+############################
+# Uploads (no versionar)
+############################
+public/uploads/
+!public/uploads/.gitkeep
+
+############################
+# IDEs & Misc
+############################
+.vscode/
+.idea/
+"../my-portfolio-site/" 

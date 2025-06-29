@@ -1,0 +1,49 @@
+{
+  "name": "my-portfolio-cms",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A Strapi application",
+  "scripts": {
+  "build": "strapi build",
+  "console": "strapi console",
+  "deploy": "strapi deploy",
+  "dev": "strapi develop",
+  "develop": "strapi develop",
+  "start": "strapi start",
+  "strapi": "strapi",
+  "upgrade": "npx @strapi/upgrade latest",
+  "upgrade:dry": "npx @strapi/upgrade latest --dry",
+  "import:trabajos": "node scripts/import-trabajos.js"
+}
+,
+  "dependencies": {
+    "@babel/runtime": "^7.27.6",
+    "@dnd-kit/core": "^6.3.1",
+    "@dnd-kit/sortable": "^10.0.0",
+    "@dnd-kit/utilities": "^3.2.2",
+    "@strapi/plugin-cloud": "5.15.0",
+    "@strapi/plugin-users-permissions": "5.15.0",
+    "@strapi/strapi": "5.15.0",
+    "better-sqlite3": "11.3.0",
+    "graceful-fs": "^4.2.11",
+    "node-fetch": "2",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-router-dom": "^6.0.0",
+    "styled-components": "^6.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "typescript": "^5"
+  },
+  "engines": {
+    "node": ">=18.0.0 <=22.x.x",
+    "npm": ">=6.0.0"
+  },
+  "strapi": {
+    "uuid": "301732e7-1f7d-41b4-b0a1-15a632edf654",
+    "installId": "2bbb7f5dbc94917f7589bf5831e82a51893bb45dafb0f5e2c5325c426a5bf6d7"
+  }
+}
