@@ -14,7 +14,8 @@
     "upgrade": "npx @strapi/upgrade latest",
     "upgrade:dry": "npx @strapi/upgrade latest --dry",
     "import:trabajos": "node scripts/import-trabajos.js",
-    "upload:cloudinary": "node --experimental-modules scripts/migrate-uploads-to-cloudinary.js"
+    "upload:cloudinary": "node --experimental-modules scripts/migrate-uploads-to-cloudinary.js",
+    "fix:cloudinary": "node scripts/fix-local-to-cloudinary.js"
   },
   "dependencies": {
     "@babel/runtime": "^7.27.6",
@@ -33,6 +34,8 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.0.0",
+    "sqlite": "^5.1.1",
+    "sqlite3": "^5.1.7",
     "styled-components": "^6.0.0"
   },
   "devDependencies": {
