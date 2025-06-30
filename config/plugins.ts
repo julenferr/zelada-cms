@@ -2,12 +2,12 @@
 export default ({ env }) => ({
   upload: {
     config: {
-      provider: 'local',
+      provider: 'cloudinary',
       providerOptions: {
-        sizeLimit: 100000000, // 100 MB
-        uploadPath: 'public/uploads',
+        cloud_name: env('CLOUDINARY_NAME'),
+        api_key: env('CLOUDINARY_KEY'),
+        api_secret: env('CLOUDINARY_SECRET'),
       },
-      mimeTypes: ['image/jpeg', 'image/png', 'image/gif', 'video/mp4'],
     },
   },
   'users-permissions': {

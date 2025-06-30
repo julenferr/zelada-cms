@@ -1,40 +1,33 @@
-const fetch = require('node-fetch');
-const fs = require('fs');
-const path = require('path');
+import fetch from "node-fetch";
+import fs from "fs";
+import path from "path";
 
-const STRAPI_URL = 'http://localhost:1337/api/trabajos';
-const JSON_PATH = path.join(__dirname, '../data/trabajos.json');
+const STRAPI_URL = "https://zelada-cms.onrender.com/api/trabajos";
+const JSON_PATH = path.join("data", "trabajos.json");
 
-// Mapeo de nombres de categorías a sus IDs reales en Strapi
+// Mapeo de nombres a IDs reales del CMS online
 const categoriaMap = {
-  'ANIMACIÓN': 6,
-  'EDITORIAL': 1,
-  'ILUSTRACIÓN': 8,
-  'PRINT': 4
+  "PRINT": 4,
+  "EDITORIAL": 1,
+  "ILUSTRACIÓN": 8,
+  "ANIMACIÓN": 6,
 };
 
 async function importar() {
-  try {
-    const raw = fs.readFileSync(JSON_PATH, 'utf-8');
-    const trabajos = JSON.parse(raw);
+  const raw = fs.readFileSync(JSON_PATH, "utf-8");
+  const trabajos = JSON.parse(raw);
 
-    for (const trabajo of trabajos) {
-      // Convertir los nombres de categorías en IDs
-      const categoriasConectadas = trabajo.categorias
-        .map(nombre => categoriaMap[nombre])
-        .filter(id => id) // descartar los que no existan
+  for (const trabajo of trabajos) {
+    // Mapear nombres a IDs
+    trabajo.categorias = (trabajo.categorias || [])
+      .map(nombre => categoriaMap[nombre])
+      .filter(Boolean);
 
-      const payload = {
-        ...trabajo,
-        categorias: {
-          connect: categoriasConectadas.map(id => ({ id }))
-        }
-      };
-
+    try {
       const res = await fetch(STRAPI_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ data: payload })
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ data: trabajo }),
       });
 
       const result = await res.json();
@@ -42,11 +35,11 @@ async function importar() {
       if (res.ok) {
         console.log(`✅ Trabajo importado: ${result?.data?.id}`);
       } else {
-        console.error(`❌ Error al importar trabajo "${trabajo.tituloHome || trabajo.titulo}":`, result?.error || result);
+        console.error(`❌ Error al importar:`, result);
       }
+    } catch (err) {
+      console.error(`⚠️ Error de red:`, err.message);
     }
-  } catch (err) {
-    console.error('⚠️ Error de conexión o red:', err.message || err);
   }
 }
 
