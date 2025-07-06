@@ -1,10 +1,20 @@
 // config/plugins.ts
 export default ({ env }) => ({
-  // si usás upload, mantené SOLO esa parte; si no, quedate con export default () => ({}).
   upload: {
     config: {
-      providerOptions: {},
-      mimeTypes: ['image/jpeg','image/png','image/gif','video/mp4'],
+      provider: 'cloudinary',
+      providerOptions: {
+        cloud_name: env('CLOUDINARY_NAME'),
+        api_key: env('CLOUDINARY_KEY'),
+        api_secret: env('CLOUDINARY_SECRET')
+      },
+    },
+  },
+  'users-permissions': {
+    config: {
+      jwtSecret: env('JWT_SECRET'),
     },
   },
 });
+
+
