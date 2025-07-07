@@ -471,6 +471,7 @@ export interface ApiTrabajoTrabajo extends Struct.CollectionTypeSchema {
     orden: Schema.Attribute.Integer;
     portada: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
     publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'titulo'>;
     titulo: Schema.Attribute.String;
     tituloHome: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
