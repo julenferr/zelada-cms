@@ -439,6 +439,45 @@ export interface ApiCategoriaCategoria extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiNosotrassNosotrass extends Struct.CollectionTypeSchema {
+  collectionName: 'nosotrasses';
+  info: {
+    displayName: 'Nosotras';
+    pluralName: 'nosotrasses';
+    singularName: 'nosotrass';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    bioAna: Schema.Attribute.Text;
+    bioNati: Schema.Attribute.Text;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    imagenAna: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    imagenFull: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    imagenNati: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::nosotrass.nosotrass'
+    > &
+      Schema.Attribute.Private;
+    parrafo1: Schema.Attribute.Text;
+    parrafo2: Schema.Attribute.Text;
+    portada: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiTrabajoTrabajo extends Struct.CollectionTypeSchema {
   collectionName: 'trabajos';
   info: {
@@ -992,6 +1031,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::categoria.categoria': ApiCategoriaCategoria;
+      'api::nosotrass.nosotrass': ApiNosotrassNosotrass;
       'api::trabajo.trabajo': ApiTrabajoTrabajo;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
