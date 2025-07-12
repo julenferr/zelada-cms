@@ -11,6 +11,14 @@ module.exports = ({ env }) => ({
         upload: {},
         delete: {},
       },
+      mimeTypes: [
+        'image/jpeg',
+        'image/png',
+        'image/gif',
+        'image/webp',
+        'image/svg+xml', // 👈 importante para SVG
+        'video/mp4'
+      ],
     },
   },
 });
