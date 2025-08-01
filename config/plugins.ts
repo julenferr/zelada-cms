@@ -17,7 +17,7 @@ export default ({ env }) => {
             overwrite: false,
             fetch_format: 'auto',
             transformation: [
-              { quality: '100' }
+              { quality: '10' }
             ]
           },
           delete: {}
