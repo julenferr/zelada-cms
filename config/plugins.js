@@ -9,11 +9,13 @@ module.exports = ({ env }) => ({
       },
       actionOptions: {
         upload: {
-          quality: '100',            // 👈 Explícitamente calidad máxima
-          use_filename: true,        // Usa nombre original
-          unique_filename: false,    // No genera nombres únicos
-          overwrite: false,          // No sobrescribe
-          fetch_format: 'auto'       // Mantiene formato original
+          use_filename: true,
+          unique_filename: false,
+          overwrite: false,
+          fetch_format: 'auto',
+          transformation: [
+            { quality: '100' } // ✅ ¡Este es el que realmente funciona!
+          ]
         },
         delete: {},
       },
