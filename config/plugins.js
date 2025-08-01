@@ -16,9 +16,7 @@ module.exports = ({ env }) => {
             unique_filename: false,
             overwrite: false,
             fetch_format: 'auto',
-            transformation: [
-              { quality: '100' }
-            ]
+            resource_type: 'raw'
           },
           delete: {}
         },
