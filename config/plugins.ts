@@ -15,10 +15,7 @@ export default ({ env }) => {
             use_filename: true,
             unique_filename: false,
             overwrite: false,
-            fetch_format: 'auto',
-            transformation: [
-              { quality: '10' }
-            ]
+            resource_type: 'raw' // 👈 clave para conservar calidad
           },
           delete: {}
         },
