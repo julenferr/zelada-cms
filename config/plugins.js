@@ -8,7 +8,13 @@ module.exports = ({ env }) => ({
         api_secret: env('CLOUDINARY_SECRET'),
       },
       actionOptions: {
-        upload: {},
+        upload: {
+          quality: '100',            // 👈 Explícitamente calidad máxima
+          use_filename: true,        // Usa nombre original
+          unique_filename: false,    // No genera nombres únicos
+          overwrite: false,          // No sobrescribe
+          fetch_format: 'auto'       // Mantiene formato original
+        },
         delete: {},
       },
       mimeTypes: [
@@ -16,10 +22,10 @@ module.exports = ({ env }) => ({
         'image/png',
         'image/gif',
         'image/webp',
-        'image/svg+xml', // 👈 importante para SVG
+        'image/svg+xml',
         'video/mp4'
       ],
-      breakpoints: [], // 👈 Agregar esto acá para evitar formatos extra
+      breakpoints: [],
     },
   },
 });
