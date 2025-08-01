@@ -19,6 +19,7 @@ module.exports = ({ env }) => ({
         'image/svg+xml', // 👈 importante para SVG
         'video/mp4'
       ],
+      breakpoints: [], // 👈 Agregar esto acá para evitar formatos extra
     },
   },
 });
