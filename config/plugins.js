@@ -1,5 +1,5 @@
 module.exports = ({ env }) => {
-  console.log('⚙️ Plugin Cloudinary cargado con configuración personalizada'); // 👈 ACA
+  console.log('⚙️ Plugin Cloudinary cargado con configuración personalizada');
 
   return {
     upload: {
@@ -8,7 +8,7 @@ module.exports = ({ env }) => {
         providerOptions: {
           cloud_name: env('CLOUDINARY_NAME'),
           api_key: env('CLOUDINARY_KEY'),
-          api_secret: env('CLOUDINARY_SECRET'),
+          api_secret: env('CLOUDINARY_SECRET')
         },
         actionOptions: {
           upload: {
@@ -20,7 +20,7 @@ module.exports = ({ env }) => {
               { quality: '100' }
             ]
           },
-          delete: {},
+          delete: {}
         },
         mimeTypes: [
           'image/jpeg',
@@ -30,8 +30,8 @@ module.exports = ({ env }) => {
           'image/svg+xml',
           'video/mp4'
         ],
-        breakpoints: [],
-      },
-    },
+        breakpoints: []
+      }
+    }
   };
 };
